@@ -105,6 +105,43 @@ There is no automated test suite. To validate a change:
 
 ---
 
+## For AI Agents Using This Plugin
+
+**⚠️ CRITICAL: You MUST check for and fix ESLint violations after every Write/Edit.**
+
+The `eslint-inject` plugin automatically runs `eslint_d` after every `Write` and `Edit` tool call and appends the results to the tool output in `<eslint>` blocks.
+
+**What you see after Write/Edit:**
+
+```
+<eslint file="/path/to/file.ts">
+/path/to/file.ts
+5:3  error  Unexpected console statement  no-console
+✖ 1 problem (1 error, 0 warnings)
+</eslint>
+```
+
+**Your responsibility:**
+
+1. **ALWAYS scan tool output for `<eslint>` blocks** after every Write or Edit
+2. **If violations exist, you MUST fix them immediately** — do not proceed to the next task
+3. **Use the Edit tool** to correct the violations
+4. **Re-check** — the next Write/Edit will show updated results in a new `<eslint>` block
+5. **Only proceed when clean** — look for `✅ clean` or no errors in the `<eslint>` block
+
+**Example workflow:**
+
+```
+You: Write file with console.log
+Tool output: <eslint file="...">...no-console error...</eslint>
+You: "I see an ESLint violation. I will fix it now."
+You: Edit file to remove console.log
+Tool output: <eslint file="...">✅ clean</eslint>
+You: "ESLint is now clean. Proceeding..."
+```
+
+---
+
 ## Key Constraints
 
 - **Do NOT export anything other than `ESLintInject`** — OpenCode iterates all named exports and calls each one as a Plugin function. Non-Plugin exports cause a `TypeError`.
