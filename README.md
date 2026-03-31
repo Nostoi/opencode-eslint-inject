@@ -40,7 +40,7 @@ Add the plugin to your project's `opencode.json`:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugins": [
+  "plugin": [
     "file:///absolute/path/to/your/project/.opencode/plugin/eslint-inject.ts"
   ]
 }
