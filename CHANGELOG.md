@@ -6,6 +6,14 @@ This project adheres to [Semantic Versioning](https://semver.org/) and [Keep a C
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- AGENTS.md section: "For AI Agents Using This Plugin" with explicit instructions to scan for `<eslint>` blocks after every Write/Edit and fix violations before proceeding
+
+---
+
 ## [0.1.1] - 2026-03-31
 
 ### Fixed
