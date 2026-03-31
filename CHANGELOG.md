@@ -6,6 +6,14 @@ This project adheres to [Semantic Versioning](https://semver.org/) and [Keep a C
 
 ---
 
+## [0.1.1] - 2026-03-31
+
+### Fixed
+
+- Plugin registration key corrected from `"plugins"` (invalid) to `"plugin"` (singular) in `opencode.json` — OpenCode schema v1.3.10 rejects the plural form with "Unrecognized key" and refuses to start
+
+---
+
 ## [0.1.0] - 2026-03-31
 
 ### Added
